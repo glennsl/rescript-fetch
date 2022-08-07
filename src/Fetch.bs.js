@@ -17,11 +17,17 @@ var $$Request = {};
 
 var $$Response = {};
 
+var $$AbortController;
+
+var $$AbortSignal;
+
 var $$Blob;
 
 var $$FormData;
 
 export {
+  $$AbortController ,
+  $$AbortSignal ,
   $$Blob ,
   $$FormData ,
   Body ,

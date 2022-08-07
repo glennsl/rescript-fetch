@@ -1,3 +1,5 @@
+module AbortController = Fetch_Abort.Controller
+module AbortSignal = Fetch_Abort.Signal
 module Blob = Fetch_Blob
 module FormData = Fetch_FormData
 
@@ -95,7 +97,7 @@ module Request = {
     redirect?: requestRedirect,
     integrity?: string,
     keepalive?: bool,
-    // signal?: abortSignal,
+    signal?: AbortSignal.t,
     duplex?: requestDuplex,
     // window?: any // can only be set to null
   }
@@ -118,7 +120,7 @@ module Request = {
   @get external keepalive: t => bool = "keepalive"
   @get external isReloadNavigation: t => bool = "isReloadNavigation"
   @get external isHistoryNavigation: t => bool = "isHistoryNavigation"
-  // @get external signal: t => abortSignal = "signal"
+  @get external signal: t => AbortSignal.t = "signal"
 
   @send external clone: t => t = "clone"
 
