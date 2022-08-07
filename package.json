@@ -1,0 +1,14 @@
+{
+  "name": "rescript-fetch",
+  "version": "0.1.0",
+  "description": "Zero-cost rescript bindings to the WHATWG Fetch API",
+  "scripts": {
+    "start": "rescript build -w"
+  },
+  "author": "Glenn Slotte <glenn@slotte.net>",
+  "license": "MIT",
+  "dependencies": {
+    "@ryyppy/rescript-promise": "^2.1.0",
+    "rescript": "^10.0.0-rc.1"
+  }
+}
