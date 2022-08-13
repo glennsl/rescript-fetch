@@ -1,5 +1,5 @@
 {
-  "name": "rescript-fetch",
+  "name": "@glennsl/rescript-fetch",
   "sources": [
     {
       "dir": "src",

@@ -1,5 +1,5 @@
 {
-  "name": "rescript-fetch",
+  "name": "@glennsl/rescript-fetch",
   "version": "0.1.0",
   "description": "Zero-cost rescript bindings to the WHATWG Fetch API",
   "scripts": {
