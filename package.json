@@ -3,10 +3,21 @@
   "version": "0.1.0",
   "description": "Zero-cost rescript bindings to the WHATWG Fetch API",
   "scripts": {
-    "start": "rescript build -w"
+    "start": "rescript build -w",
+    "fmt": "rescript format -all"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glennsl/rescript-fetch.git"
+  },
+  "keywords": ["rescript", "fetch"],
   "author": "Glenn Slotte <glenn@slotte.net>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glennsl/rescript-fetch/issues"
+  },
+  "homepage": "https://github.com/glennsl/rescript-fetch#readme",
+  "files": ["src/*.res*", "bsconfig.json"],
   "dependencies": {
     "@ryyppy/rescript-promise": "^2.1.0",
     "rescript": "^10.0.0-rc.1"
