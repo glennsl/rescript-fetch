@@ -1,5 +1,5 @@
 # rescript-fetch
-  * [ ] Experimental zero-cost rescript bindings to the WHATWG Fetch API
+Experimental zero-cost rescript bindings to the WHATWG Fetch API
 
 [![npm](https://img.shields.io/npm/v/@glennsl/rescript-fetch.svg)](https://npmjs.org/@glennsl/rescript-fetch)
 [![Issues](https://img.shields.io/github/issues/glennsl/rescript-fetch.svg)](https://github.com/glennsl/rescript-fetch/issues)
