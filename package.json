@@ -4,7 +4,8 @@
   "description": "Zero-cost rescript bindings to the WHATWG Fetch API",
   "scripts": {
     "start": "rescript build -w",
-    "fmt": "rescript format -all"
+    "fmt": "rescript format -all",
+    "test": "true"
   },
   "repository": {
     "type": "git",
