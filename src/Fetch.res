@@ -160,4 +160,4 @@ module Response = {
 
 @val external fetch: (string, Request.init) => Promise.t<Response.t> = "fetch"
 @val external get: string => Promise.t<Response.t> = "fetch"
-@val external execute: Request.t => Promise.t<Response.t> = "fetch"
+@val external send: Request.t => Promise.t<Response.t> = "fetch"
