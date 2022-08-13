@@ -3,25 +3,27 @@ let _: Promise.t<string> = Fetch.get("/api/hello")->Promise.then(Fetch.Response.
 
 // POST with JSON payload
 let _: Promise.t<Js.Json.t> = {
-  open Fetch
+  let postBanana = data => {
+    open Fetch
 
-  let data = Js.Json.stringifyAny({
+    fetch(
+      "/api/bananas",
+      {
+        method: #POST,
+        body: data->Js.Json.stringifyAny->Belt.Option.getExn->Body.Init.string,
+        headers: Headers.Init.object({
+          "Content-type": "application/json",
+        }),
+      },
+    )->Promise.then(Response.json)
+  }
+
+  postBanana({
     "sampledAt": Js.Date.now(),
     "cultivar": "Cavendish",
     "bunches": 10,
     "fruitsPerBunch": 20,
-  })->Belt.Option.getExn
-
-  fetch(
-    "/api/bananas",
-    {
-      method: #POST,
-      body: Body.Init.string(data),
-      headers: Headers.Init.object({
-        "Content-type": "application/json",
-      }),
-    },
-  )->Promise.then(Response.json)
+  })
 }
 
 // POST with FormData

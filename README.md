@@ -1,5 +1,5 @@
 # rescript-fetch
-Experimental zero-cost rescript bindings to the WHATWG Fetch API
+  * [ ] Experimental zero-cost rescript bindings to the WHATWG Fetch API
 
 [![npm](https://img.shields.io/npm/v/@glennsl/rescript-fetch.svg)](https://npmjs.org/@glennsl/rescript-fetch)
 [![Issues](https://img.shields.io/github/issues/glennsl/rescript-fetch.svg)](https://github.com/glennsl/rescript-fetch/issues)
@@ -9,21 +9,14 @@ Experimental zero-cost rescript bindings to the WHATWG Fetch API
 ## Example
 
 ```rescript
-let _: Promise.t<Js.Json.t> = {
+let postBanana = data => {
   open Fetch
-
-  let data = Js.Json.stringifyAny({
-    "sampledAt": Js.Date.now(),
-    "cultivar": "Cavendish",
-    "bunches": 10,
-    "fruitsPerBunch": 20,
-  })->Belt.Option.getExn
 
   fetch(
     "/api/bananas",
     {
       method: #POST,
-      body: Body.Init.string(data),
+      body: data->Js.Json.stringifyAny->Belt.Option.getExn->Body.Init.string,
       headers: Headers.Init.object({
         "Content-type": "application/json",
       }),
