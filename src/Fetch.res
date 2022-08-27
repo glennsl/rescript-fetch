@@ -73,6 +73,8 @@ module Headers = {
 
   @new external empty: t = "Headers"
   @new external make: init => t = "Headers"
+  @new external fromObject: {..} => t = "Headers"
+  @new external fromArray: array<(string, string)> => t = "Headers"
 
   @send external append: (t, string, string) => unit = "append"
   @send external delete: (t, string) => unit = "delete"
