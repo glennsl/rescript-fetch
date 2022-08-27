@@ -52,15 +52,13 @@ type requestDuplex = [#half]
 type responseType = [#basic | #cors | #default | #error | #opaque | #opaqueredirect]
 
 module Body = {
-  type init
+  type t
 
-  module Init = {
-    external string: string => init = "%identity"
-    external blob: Blob.t => init = "%identity"
-    external formData: FormData.t => init = "%identity"
-    // external bufferSource: bufferSource => init = "%identity"
-    // external urlSearchParams: urlSearchParams => init = "%identity"
-  }
+  external string: string => t = "%identity"
+  external blob: Blob.t => t = "%identity"
+  external formData: FormData.t => t = "%identity"
+  // external bufferSource: bufferSource => t = "%identity"
+  // external urlSearchParams: urlSearchParams => t = "%identity"
 }
 
 module Headers = {
@@ -87,7 +85,7 @@ module Request = {
   type t
   type init = {
     method?: method,
-    body?: Body.init,
+    body?: Body.t,
     headers?: Headers.init,
     referrer?: string,
     referrerPolicy?: referrerPolicy,

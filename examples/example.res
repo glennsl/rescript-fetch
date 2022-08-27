@@ -10,7 +10,7 @@ let _: Promise.t<Js.Json.t> = {
       "/api/bananas",
       {
         method: #POST,
-        body: data->Js.Json.stringifyAny->Belt.Option.getExn->Body.Init.string,
+        body: data->Js.Json.stringifyAny->Belt.Option.getExn->Body.string,
         headers: Headers.Init.object({
           "Content-type": "application/json",
         }),
@@ -40,7 +40,7 @@ let _: Promise.t<Js.Json.t> = {
     "/api/upload",
     {
       method: #POST,
-      body: Body.Init.formData(formData),
+      body: Body.formData(formData),
       headers: Headers.Init.object({"Accept": "*"}),
     },
   )->Promise.then(Response.json)
