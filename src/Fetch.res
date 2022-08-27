@@ -59,6 +59,7 @@ module Body = {
   external formData: FormData.t => t = "%identity"
   // external bufferSource: bufferSource => t = "%identity"
   // external urlSearchParams: urlSearchParams => t = "%identity"
+  @val external none: t = "null"
 }
 
 module Headers = {
