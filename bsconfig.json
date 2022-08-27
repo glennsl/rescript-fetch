@@ -5,7 +5,7 @@
       "dir": "src",
       "subdirs": true
     },
-    { "dir": "examples", "dev": true }
+    { "dir": "examples", "type": "dev" }
   ],
   "package-specs": {
     "module": "es6",
