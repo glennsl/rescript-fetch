@@ -11,7 +11,7 @@ let _: Promise.t<Js.Json.t> = {
       {
         method: #POST,
         body: data->Js.Json.stringifyAny->Belt.Option.getExn->Body.string,
-        headers: Headers.Init.object({
+        headers: Headers.fromObject({
           "Content-type": "application/json",
         }),
       },
@@ -41,7 +41,7 @@ let _: Promise.t<Js.Json.t> = {
     {
       method: #POST,
       body: Body.formData(formData),
-      headers: Headers.Init.object({"Accept": "*"}),
+      headers: Headers.fromObject({"Accept": "*"}),
     },
   )->Promise.then(Response.json)
 }

@@ -89,7 +89,7 @@ module Request = {
   type init = {
     method?: method,
     body?: Body.t,
-    headers?: Headers.init,
+    headers?: Headers.t,
     referrer?: string,
     referrerPolicy?: referrerPolicy,
     mode?: requestMode,
