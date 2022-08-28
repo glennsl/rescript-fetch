@@ -16,8 +16,8 @@ let postBanana = data => {
     "/api/bananas",
     {
       method: #POST,
-      body: data->Js.Json.stringifyAny->Belt.Option.getExn->Body.Init.string,
-      headers: Headers.Init.object({
+      body: data->Js.Json.stringifyAny->Belt.Option.getExn->Body.string,
+      headers: Headers.fromObject({
         "Content-type": "application/json",
       }),
     },
