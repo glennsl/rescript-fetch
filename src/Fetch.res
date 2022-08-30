@@ -84,6 +84,8 @@ module Headers = {
   @send external has: (t, string) => bool = "has"
   @send external set: (t, string, string) => unit = "set"
 
+  // The following are taken from the iterable protocol spec
+
   /**
     * Callback arguments are (value, key)
     */ @send
@@ -94,9 +96,9 @@ module Headers = {
     */ @send
   external forEachWithHeaders: (t, @uncurry (string, string, t) => unit) => unit = "forEach"
 
-  @send external entries: t => Js.Array2.array_like<(string, string)> = "entries"
-  @send external keys: t => Js.Array2.array_like<string> = "keys"
-  @send external values: t => Js.Array2.array_like<string> = "values"
+  @send external entries: t => Js.Array.array_like<(string, string)> = "entries"
+  @send external keys: t => Js.Array.array_like<string> = "keys"
+  @send external values: t => Js.Array.array_like<string> = "values"
 }
 
 module Request = {
