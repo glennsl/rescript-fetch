@@ -89,14 +89,9 @@ module Headers = {
   // The following are taken from the iterable protocol spec
 
   /**
-    * Callback arguments are (value, key)
-    */ @send
-  external forEach: (t, @uncurry (string, string) => unit) => unit = "forEach"
-
-  /**
     * Callback arguments are (value, key, headers)
     */ @send
-  external forEachWithHeaders: (t, @uncurry (string, string, t) => unit) => unit = "forEach"
+  external forEach: (t, @uncurry (string, string, t) => unit) => unit = "forEach"
 
   @send external entries: t => Js.Array.array_like<(string, string)> = "entries"
   @send external keys: t => Js.Array.array_like<string> = "keys"
