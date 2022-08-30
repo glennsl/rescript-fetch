@@ -73,6 +73,7 @@ module Headers = {
 
   @new external empty: t = "Headers"
   @new external make: init => t = "Headers"
+  @new external clone: t => t = "Headers"
   @new external fromObject: {..} => t = "Headers"
   @new external fromArray: array<(string, string)> => t = "Headers"
 
@@ -82,6 +83,20 @@ module Headers = {
   external get: (t, string) => option<string> = "get"
   @send external has: (t, string) => bool = "has"
   @send external set: (t, string, string) => unit = "set"
+
+  /**
+    * Callback arguments are (value, key)
+    */ @send
+  external forEach: (t, @uncurry (string, string) => unit) => unit = "forEach"
+
+  /**
+    * Callback arguments are (value, key, headers)
+    */ @send
+  external forEachWithHeaders: (t, @uncurry (string, string, t) => unit) => unit = "forEach"
+
+  @send external entries: t => Js.Array2.array_like<(string, string)> = "entries"
+  @send external keys: t => Js.Array2.array_like<string> = "keys"
+  @send external values: t => Js.Array2.array_like<string> = "values"
 }
 
 module Request = {
