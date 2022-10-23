@@ -173,6 +173,6 @@ module Response = {
   // @send external arrayBuffer: t => Promise.t<arrayBuffer> = "arrayBuffer"
 }
 
-@val external fetch: (string, Request.init) => Promise.t<Response.t> = "fetch"
+@raises(JsError) @val external fetch: (string, Request.init) => Promise.t<Response.t> = "fetch"
 @val external get: string => Promise.t<Response.t> = "fetch"
 @val external send: Request.t => Promise.t<Response.t> = "fetch"
