@@ -1,6 +1,6 @@
 {
   "name": "@glennsl/rescript-fetch",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Zero-cost rescript bindings to the WHATWG Fetch API",
   "scripts": {
     "start": "rescript build -w",
@@ -11,14 +11,20 @@
     "type": "git",
     "url": "git+https://github.com/glennsl/rescript-fetch.git"
   },
-  "keywords": ["rescript", "fetch"],
+  "keywords": [
+    "rescript",
+    "fetch"
+  ],
   "author": "Glenn Slotte <glenn@slotte.net>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/glennsl/rescript-fetch/issues"
   },
   "homepage": "https://github.com/glennsl/rescript-fetch#readme",
-  "files": ["src/*.res*", "bsconfig.json"],
+  "files": [
+    "src/*.res*",
+    "bsconfig.json"
+  ],
   "devDependencies": {
     "rescript": "^10.1.2"
   }
