@@ -9,10 +9,10 @@ Experimental zero-cost rescript bindings to the WHATWG Fetch API
 ## Example
 
 ```rescript
-let postBanana = data => {
+let postBanana = async data => {
   open Fetch
 
-  fetch(
+  let response = await fetch(
     "/api/bananas",
     {
       method: #POST,
@@ -21,7 +21,9 @@ let postBanana = data => {
         "Content-type": "application/json",
       }),
     },
-  )->Promise.then(Response.json)
+  )
+
+  await response->Response.json
 }
 ```
 
@@ -54,6 +56,11 @@ For the moment, please see the interface file:
 
 
 ## Changes
+
+### 0.2.0
+
+* [BREAKING] Updated required minimum version of rescript to 10.1.2 in order to use the new promise type alias and async/await.
+* Removed `@ryyppy/rescript-promise` dependency.
 
 ### 0.1.0
 Initial release

@@ -142,11 +142,11 @@ module Request = {
   // Body mixin
   // @get external body: t => readableStream = "body"
   @get external bodyUsed: t => bool = "bodyUsed"
-  @send external text: t => Promise.t<string> = "text"
-  @send external json: t => Promise.t<Js.Json.t> = "json"
-  @send external blob: t => Promise.t<Blob.t> = "blob"
-  @send external formData: t => Promise.t<FormData.t> = "formData"
-  // @send external arrayBuffer: t => Promise.t<arrayBuffer> = "arrayBuffer"
+  @send external text: t => promise<string> = "text"
+  @send external json: t => promise<Js.Json.t> = "json"
+  @send external blob: t => promise<Blob.t> = "blob"
+  @send external formData: t => promise<FormData.t> = "formData"
+  // @send external arrayBuffer: t => promise<arrayBuffer> = "arrayBuffer"
 }
 
 module Response = {
@@ -166,13 +166,13 @@ module Response = {
   // Body mixin
   // @get external body: t => readableStream = "body"
   @get external bodyUsed: t => bool = "bodyUsed"
-  @send external text: t => Promise.t<string> = "text"
-  @send external json: t => Promise.t<Js.Json.t> = "json"
-  @send external blob: t => Promise.t<Blob.t> = "blob"
-  @send external formData: t => Promise.t<FormData.t> = "formData"
-  // @send external arrayBuffer: t => Promise.t<arrayBuffer> = "arrayBuffer"
+  @send external text: t => promise<string> = "text"
+  @send external json: t => promise<Js.Json.t> = "json"
+  @send external blob: t => promise<Blob.t> = "blob"
+  @send external formData: t => promise<FormData.t> = "formData"
+  // @send external arrayBuffer: t => promise<arrayBuffer> = "arrayBuffer"
 }
 
-@val external fetch: (string, Request.init) => Promise.t<Response.t> = "fetch"
-@val external get: string => Promise.t<Response.t> = "fetch"
-@val external send: Request.t => Promise.t<Response.t> = "fetch"
+@val external fetch: (string, Request.init) => promise<Response.t> = "fetch"
+@val external get: string => promise<Response.t> = "fetch"
+@val external send: Request.t => promise<Response.t> = "fetch"

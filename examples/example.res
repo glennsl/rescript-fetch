@@ -1,12 +1,15 @@
 // Simple GET
-let _: Promise.t<string> = Fetch.get("/api/hello")->Promise.then(Fetch.Response.text)
+let getText = async () => {
+  let response = await Fetch.get("/api/hello")
+  await response->Fetch.Response.text
+}
 
 // POST with JSON payload
-let _: Promise.t<Js.Json.t> = {
-  let postBanana = data => {
+let postJson = () => {
+  let postBanana = async data => {
     open Fetch
 
-    fetch(
+    let response = await fetch(
       "/api/bananas",
       {
         method: #POST,
@@ -15,7 +18,9 @@ let _: Promise.t<Js.Json.t> = {
           "Content-type": "application/json",
         }),
       },
-    )->Promise.then(Response.json)
+    )
+
+    await response->Response.json
   }
 
   postBanana({
@@ -27,7 +32,7 @@ let _: Promise.t<Js.Json.t> = {
 }
 
 // POST with FormData
-let _: Promise.t<Js.Json.t> = {
+let postFormData = async () => {
   open Fetch
 
   let formData = FormData.make()
@@ -36,12 +41,14 @@ let _: Promise.t<Js.Json.t> = {
     #Object({"type": "image/jpg", "uri": "path/to/it", "name": "image0.jpg"}),
   )
 
-  fetch(
+  let response = await fetch(
     "/api/upload",
     {
       method: #POST,
       body: Body.formData(formData),
       headers: Headers.fromObject({"Accept": "*"}),
     },
-  )->Promise.then(Response.json)
+  )
+
+  await response->Response.json
 }
