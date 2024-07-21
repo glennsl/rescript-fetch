@@ -57,6 +57,10 @@ For the moment, please see the interface file:
 
 ## Changes
 
+### 0.2.1
+
+* Fleshed out `AbortSignal` bindings.
+
 ### 0.2.0
 
 * [BREAKING] Updated required minimum version of rescript to 10.1.2 in order to use the new promise type alias and async/await.
