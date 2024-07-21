@@ -1,5 +1,6 @@
 module AbortController = Fetch_Abort.Controller
 module AbortSignal = Fetch_Abort.Signal
+module AbortEvent = Fetch_Abort.Event
 module Blob = Fetch_Blob
 module FormData = Fetch_FormData
 

@@ -52,3 +52,31 @@ let postFormData = async () => {
 
   await response->Response.json
 }
+
+// AbortController
+let abortFetch = async () => {
+  open Fetch
+
+  let controller = AbortController.make()
+  let timeoutSignal = AbortSignal.timeout(60_000)
+  let manualSignal = AbortController.signal(controller)
+  let timeoutHandler = _ => Js.log("Request timed out after 60s")
+  let manualHandler = _ => Js.log("Request aborted manually")
+  let signal = AbortSignal.any([timeoutSignal, manualSignal])
+
+  AbortSignal.addEventListener(timeoutSignal, #abort(timeoutHandler), ~options={once: true, signal})
+  AbortSignal.addEventListener(manualSignal, #abort(manualHandler), ~options={once: true, signal})
+
+  let responsePromise = fetch("/api/long", {Request.signal: signal})
+
+  let _ = Js.Global.setTimeout(() => {
+    AbortController.abort(controller, ~reason="User aborted")
+  }, 1000)
+
+  try {
+    let _ = await responsePromise
+    timeoutSignal->AbortSignal.removeEventListener(#abort(timeoutHandler), ~options=?None)
+  } catch {
+  | Js.Exn.Error(error) => Js.Exn.message(error)->Js.log
+  }
+}
