@@ -129,7 +129,7 @@ module Request = {
   @get external referrer: t => string = "referrer"
   @get external referrerPolicy: t => referrerPolicy = "referrerPolicy"
   @get external mode: t => requestMode = "mode"
-  @get external credentials: t => requestCredentials = "crendetials"
+  @get external credentials: t => requestCredentials = "credentials"
   @get external cache: t => requestCache = "cache"
   @get external redirect: t => requestRedirect = "redirect"
   @get external integrity: t => string = "integrity"
