@@ -57,6 +57,10 @@ For the moment, please see the interface file:
 
 ## Changes
 
+### 0.2.2
+
+* Fixed typo in `Request.credentials` binding.
+
 ### 0.2.1
 
 * Fleshed out `AbortSignal` bindings.
