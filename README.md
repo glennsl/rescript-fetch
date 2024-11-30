@@ -57,6 +57,10 @@ For the moment, please see the interface file:
 
 ## Changes
 
+### 0.2.3
+
+* Added `Headers.getSetCookie`
+
 ### 0.2.2
 
 * Fixed typo in `Request.credentials` binding.
