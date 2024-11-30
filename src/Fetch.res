@@ -84,6 +84,7 @@ module Headers = {
   @send external delete: (t, string) => unit = "delete"
   @send @return(nullable)
   external get: (t, string) => option<string> = "get"
+  @send external getSetCookie: t => array<string> = "getSetCookie"
   @send external has: (t, string) => bool = "has"
   @send external set: (t, string, string) => unit = "set"
 
