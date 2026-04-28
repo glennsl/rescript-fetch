@@ -1,6 +1,6 @@
 {
   "name": "@glennsl/rescript-fetch",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Zero-cost rescript bindings to the WHATWG Fetch API",
   "scripts": {
     "start": "rescript build -w",
@@ -23,9 +23,9 @@
   "homepage": "https://github.com/glennsl/rescript-fetch#readme",
   "files": [
     "src/*.res*",
-    "bsconfig.json"
+    "rescript.json"
   ],
   "devDependencies": {
-    "rescript": "^10.1.2"
+    "rescript": "^12.2.0"
   }
 }

@@ -4,10 +4,9 @@ module EntryValue = {
   type t
 
   let classify = value =>
-    if Js.typeof(value) == "string" {
-      #String(Obj.magic(value))
-    } else {
-      assert false
+    switch Type.typeof(value) {
+    | #string => #String(Obj.magic(value))
+    | _ => assert(false)
     }
 }
 
