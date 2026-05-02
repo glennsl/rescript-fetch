@@ -76,7 +76,8 @@ module Headers = {
   @new external make: init => t = "Headers"
   /**
    * Non-standard
-   */ @new external clone: t => t = "Headers"
+   */
+  @new external clone: t => t = "Headers"
   @new external fromObject: {..} => t = "Headers"
   @new external fromArray: array<(string, string)> => t = "Headers"
 
@@ -92,7 +93,8 @@ module Headers = {
 
   /**
     * Callback arguments are (value, key, headers)
-    */ @send
+    */
+  @send
   external forEach: (t, (string, string, t) => unit) => unit = "forEach"
 
   @send external entries: t => Iterator.t<(string, string)> = "entries"

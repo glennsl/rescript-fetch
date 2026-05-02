@@ -39,16 +39,22 @@ module Signal = {
   }
 
   @send
-  external addEventListener: (t, @string [#abort(Event.t => unit)], ~options: addEventListenerOptions=?) => unit =
-    "addEventListener"
+  external addEventListener: (
+    t,
+    @string [#abort(Event.t => unit)],
+    ~options: addEventListenerOptions=?,
+  ) => unit = "addEventListener"
 
   type removeEventListenerOptions = {
     capture?: bool,
   }
 
   @send
-  external removeEventListener: (t, @string [#abort(Event.t => unit)], ~options: removeEventListenerOptions=?) => unit =
-    "removeEventListener"
+  external removeEventListener: (
+    t,
+    @string [#abort(Event.t => unit)],
+    ~options: removeEventListenerOptions=?,
+  ) => unit = "removeEventListener"
 }
 
 module Controller = {
