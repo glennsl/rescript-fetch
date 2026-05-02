@@ -93,11 +93,11 @@ module Headers = {
   /**
     * Callback arguments are (value, key, headers)
     */ @send
-  external forEach: (t, @uncurry (string, string, t) => unit) => unit = "forEach"
+  external forEach: (t, (string, string, t) => unit) => unit = "forEach"
 
-  @send external entries: t => Js.Array.array_like<(string, string)> = "entries"
-  @send external keys: t => Js.Array.array_like<string> = "keys"
-  @send external values: t => Js.Array.array_like<string> = "values"
+  @send external entries: t => Iterator.t<(string, string)> = "entries"
+  @send external keys: t => Iterator.t<string> = "keys"
+  @send external values: t => Iterator.t<string> = "values"
 }
 
 module Request = {
@@ -145,7 +145,7 @@ module Request = {
   // @get external body: t => readableStream = "body"
   @get external bodyUsed: t => bool = "bodyUsed"
   @send external text: t => promise<string> = "text"
-  @send external json: t => promise<Js.Json.t> = "json"
+  @send external json: t => promise<JSON.t> = "json"
   @send external blob: t => promise<Blob.t> = "blob"
   @send external formData: t => promise<FormData.t> = "formData"
   // @send external arrayBuffer: t => promise<arrayBuffer> = "arrayBuffer"
@@ -169,7 +169,7 @@ module Response = {
   // @get external body: t => readableStream = "body"
   @get external bodyUsed: t => bool = "bodyUsed"
   @send external text: t => promise<string> = "text"
-  @send external json: t => promise<Js.Json.t> = "json"
+  @send external json: t => promise<JSON.t> = "json"
   @send external blob: t => promise<Blob.t> = "blob"
   @send external formData: t => promise<FormData.t> = "formData"
   // @send external arrayBuffer: t => promise<arrayBuffer> = "arrayBuffer"

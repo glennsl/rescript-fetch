@@ -16,7 +16,7 @@ let postBanana = async data => {
     "/api/bananas",
     {
       method: #POST,
-      body: data->Js.Json.stringifyAny->Belt.Option.getExn->Body.string,
+      body: data->JSON.stringifyAny->Option.getOrThrow->Body.string,
       headers: Headers.fromObject({
         "Content-type": "application/json",
       }),
@@ -36,11 +36,11 @@ See [examples](https://github.com/glennsl/rescript-fetch/blob/master/examples/) 
 npm install --save @glennsl/rescript-fetch
 ```
 
-Then add `@glennsl/rescript-fetch` to `bs-dependencies` in your `bsconfig.json`:
+Then add `@glennsl/rescript-fetch` to `dependencies` in your `rescript.json`:
 
 ```diff
  {
-   "bs-dependencies": [
+   "dependencies": [
 +    "@glennsl/rescript-fetch"
    ]
  }
@@ -56,6 +56,12 @@ For the moment, please see the interface file:
 
 
 ## Changes
+
+### 0.3.0
+
+* [BREAKING] Updated required minimum version of rescript to 12.
+* Replaced `bsconfig.json` with `rescript.json` and switched module spec to `esmodule`.
+* Migrated from `Js.Json.t`/`Js.Array.array_like` to the rescript 12 standard library (`JSON.t`, `Iterator.t`).
 
 ### 0.2.3
 

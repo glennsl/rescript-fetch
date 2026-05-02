@@ -13,7 +13,7 @@ let postJson = () => {
       "/api/bananas",
       {
         method: #POST,
-        body: data->Js.Json.stringifyAny->Belt.Option.getExn->Body.string,
+        body: data->JSON.stringifyAny->Option.getOrThrow->Body.string,
         headers: Headers.fromObject({
           "Content-type": "application/json",
         }),
@@ -24,7 +24,7 @@ let postJson = () => {
   }
 
   postBanana({
-    "sampledAt": Js.Date.now(),
+    "sampledAt": Date.now(),
     "cultivar": "Cavendish",
     "bunches": 10,
     "fruitsPerBunch": 20,
@@ -60,8 +60,8 @@ let abortFetch = async () => {
   let controller = AbortController.make()
   let timeoutSignal = AbortSignal.timeout(60_000)
   let manualSignal = AbortController.signal(controller)
-  let timeoutHandler = _ => Js.log("Request timed out after 60s")
-  let manualHandler = _ => Js.log("Request aborted manually")
+  let timeoutHandler = _ => Console.log("Request timed out after 60s")
+  let manualHandler = _ => Console.log("Request aborted manually")
   let signal = AbortSignal.any([timeoutSignal, manualSignal])
 
   AbortSignal.addEventListener(timeoutSignal, #abort(timeoutHandler), ~options={once: true, signal})
@@ -69,7 +69,7 @@ let abortFetch = async () => {
 
   let responsePromise = fetch("/api/long", {Request.signal: signal})
 
-  let _ = Js.Global.setTimeout(() => {
+  let _ = setTimeout(() => {
     AbortController.abort(controller, ~reason="User aborted")
   }, 1000)
 
@@ -77,6 +77,6 @@ let abortFetch = async () => {
     let _ = await responsePromise
     timeoutSignal->AbortSignal.removeEventListener(#abort(timeoutHandler), ~options=?None)
   } catch {
-  | Js.Exn.Error(error) => Js.Exn.message(error)->Js.log
+  | JsExn(error) => Console.log(JsExn.message(error))
   }
 }
