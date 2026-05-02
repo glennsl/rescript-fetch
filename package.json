@@ -3,8 +3,8 @@
   "version": "0.3.0",
   "description": "Zero-cost rescript bindings to the WHATWG Fetch API",
   "scripts": {
-    "start": "rescript build -w",
-    "fmt": "rescript format -all",
+    "start": "rescript watch",
+    "fmt": "rescript format",
     "test": "true"
   },
   "repository": {
